@@ -5,7 +5,7 @@ import Image from "next/image";
 interface Props {
     isOpen: boolean;
     notifications: Array<Notification>;
-    handleClearNotifications: () => void;
+    handleClearNotifications: Function;
 }
 
 const NotificationPanel: React.FC<Props> = ({isOpen, notifications, handleClearNotifications}) => {
@@ -16,7 +16,7 @@ const NotificationPanel: React.FC<Props> = ({isOpen, notifications, handleClearN
                 <button
                     type="button"
                     className="rounded-sm bg-[#444] py-1 px-2 text-[#eee]"
-                    onClick={handleClearNotifications}
+                    onClick={() => handleClearNotifications()}
                 >
                     Clear all
                 </button>

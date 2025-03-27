@@ -4,7 +4,7 @@ import Image from "next/image";
 
 interface Props {
     program: Program;
-    handleProgram: (name: string) => void;
+    handleProgram: Function;
 }
 
 const DesktopIcon: React.FC<Props> = ({program, handleProgram}) => {

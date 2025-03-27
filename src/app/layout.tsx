@@ -1,6 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
+import WindowsBackground from "@/components/WindowsBackground";
+import WindowsScreen from "@/components/WindowsScreen";
 
 const PROJ_NAME: string = "WinFolio";
 
@@ -37,7 +39,10 @@ export default function RootLayout({
       <html lang="en">
       <body className="App h-dvh relative">
       <main className="w-full h-[max(100dvh,100%)] relative isolate">
-          {children}
+          <WindowsBackground />
+          <WindowsScreen>
+              {children}
+          </WindowsScreen>
       </main>
       </body>
       </html>

@@ -6,8 +6,8 @@ interface Props {
     children: React.ReactNode;
     program: Program;
     onClose: () => void;
-    isFullScreen: boolean;
-    handleFullScreen: () => void;
+    isFullScreen?: boolean;
+    handleFullScreen?: () => void;
 }
 
 const ProgramWindow: React.FC<Props> = ({children, program, onClose, isFullScreen, handleFullScreen}) => {
