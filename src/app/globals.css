@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@property --taskbar-height {
+  syntax: "<length>";
+  initial-value: 59px;
+  inherits: true;
+}
+
+@theme {
+  --font-sans: "Segoe UI";
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.taskbar-icon:is(:hover)::before{
+  content: '';
+  position: absolute;
+  inset-inline: -10px;
+  aspect-ratio: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(rgb(250 250 250 / 0.3), rgb(250 250 250 / 0.2));
+  border-radius: 5px;
+}
+
+
+@property --program-min-width {
+  syntax: "<length>";
+  initial-value: 320px;
+  inherits: true;
+}
+
+@keyframes openProgram {
+  to{opacity: 1;}
+}
+
+.program-window{
+  translate: -50% 0;
+  min-width: var(--program-min-width);
+  background: #222;
+  opacity: 0;
+  animation: openProgram 0.3s ease-in-out forwards;
+}
+
+.program-header-options button{
+  height: 100%;
+  aspect-ratio: 1;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #eee;
+  font-size: 25px;
+}
+
+
+
+/* ======== ON SCREEN PROGRAMS ======== */
+
+
+.screen-program .screen-program-name{
+  text-shadow: 1px 1px #000;
+}
+
+
+
+/* ======== WIFI PANEL ======== */
+
+
+#wifi-panel:has(.plane-mode > .active) > :not(.plane-mode) > button{
+  background: #4444;
+  color: #fff;
+}
+
+
+
+/* ======== WINDOWS MENU ======== */
+
+
+#windows-menu{
+  background: rgb(20 20 20 / 0.8);
+  transform: translateY(calc(100% + 25vh));
+}
+#windows-menu.open{
+  transform: translateY(0);
+}
+
+#windows-menu .start-menu-row:not(:first-child){
+  padding-top: 40px;
+  padding-inline: 32px;
+  color: #eee;
+}
+
+
+
+/* ======== CONTEXT MENU ======== */
+
+
+#context-menu > .context-section:not(:first-child){
+  padding-top: 0;
+}
