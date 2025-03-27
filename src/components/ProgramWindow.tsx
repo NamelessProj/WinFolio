@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React from 'react';
 import {Program} from "@/utils/interfaces";
 import Image from "next/image";
 

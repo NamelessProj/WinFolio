@@ -40,7 +40,7 @@ const ContextMenu: React.FC<Props> = ({windowsSite}) => {
             ref.current.classList.remove('hidden');
         }
 
-        const handleCloseContext = (e: MouseEvent): void => {
+        const handleCloseContext = (): void => {
             if(!ref.current) return;
             ref.current.classList.add('hidden');
         }
