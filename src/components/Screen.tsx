@@ -14,6 +14,7 @@ interface Props {
     handleProgram: Function;
     handleClearNotifications: Function;
     isNotificationsOpen: boolean;
+    setIsNotificationsOpen: Function;
     isWifiMenuOpen: boolean;
     setIsWifiMenuOpen: Function;
     isWindowsMenuOpen: boolean;
@@ -21,7 +22,7 @@ interface Props {
     notifications: Array<Notification>;
 }
 
-const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, handleProgram, handleClearNotifications, isNotificationsOpen, isWifiMenuOpen, setIsWifiMenuOpen, isWindowsMenuOpen, setIsWindowsMenuOpen, notifications}) => {
+const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, handleProgram, handleClearNotifications, isNotificationsOpen, setIsNotificationsOpen, isWifiMenuOpen, setIsWifiMenuOpen, isWindowsMenuOpen, setIsWindowsMenuOpen, notifications}) => {
     const ref = React.useRef<HTMLDivElement>(null);
     const [windowsSite, setWindowsSite] = React.useState<{height: number, width: number}>({height: 1080, width: 1920});
 
@@ -60,6 +61,7 @@ const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, hand
 
             <NotificationPanel
                 isOpen={isNotificationsOpen}
+                setIsOpen={setIsNotificationsOpen}
                 notifications={notifications}
                 handleClearNotifications={handleClearNotifications}
             />
