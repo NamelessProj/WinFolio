@@ -1,6 +1,8 @@
 import React from 'react';
+import {ContextMenuItem} from "@/utils/interfaces";
+import ContextMenuEl from "@/components/ContextMenuEl";
 
-const items: Array<{name: string, link: string, svg: string}[]> = [
+const items: Array<ContextMenuItem[]> = [
     [
         {
             name: 'Contact Me',
@@ -27,7 +29,7 @@ interface Props {
 const ContextMenu: React.FC<Props> = ({windowsSite}) => {
     const ref = React.useRef<HTMLDivElement>(null);
 
-    React.useEffect(() => {
+    React.useEffect((): () => void => {
         const handleOpenContext = (e: MouseEvent): void => {
             e.preventDefault();
             if(!ref.current) return;
@@ -56,23 +58,9 @@ const ContextMenu: React.FC<Props> = ({windowsSite}) => {
 
     return (
         <div ref={ref} id="context-menu" className="absolute top-0 left-0 w-[400px] bg-[rgba(42,42,42,0.8)] z-50 rounded-xl backdrop-blur-md hidden">
-            {items.map((row, i) => (
+            {items.map((row: ContextMenuItem[], i: number) => (
                 <div key={i} className="context-section py-4 px-2.5 text-white text-base">
-                    {row.map((item, j) => (
-                        <a
-                            key={j}
-                            href={item.link}
-                            target="_blank"
-                            className="py-2.5 px-3 rounded-md flex items-center gap-2.5 hover:bg-[#5558]"
-                        >
-                            <svg className="text-[#1291de]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" height="20">
-                                <path d={item.svg} />
-                            </svg>
-                            <p>
-                                {item.name}
-                            </p>
-                        </a>
-                    ))}
+                    {row.map((item: ContextMenuItem, j: number) => <ContextMenuEl key={j} item={item} />)}
                 </div>
             ))}
         </div>
