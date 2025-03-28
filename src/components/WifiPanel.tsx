@@ -1,7 +1,9 @@
 import React from 'react';
+import ClickOutside from "@/components/ClickOutside";
 
 interface Props {
     isOpen: boolean;
+    setIsOpen: Function;
 }
 
 interface Item {
@@ -10,7 +12,7 @@ interface Item {
     svg: React.ReactNode;
 }
 
-const WifiPanel: React.FC<Props> = ({isOpen}) => {
+const WifiPanel: React.FC<Props> = ({isOpen, setIsOpen}) => {
     const [items, setItems] = React.useState<Array<Item>>([
         {
             name: "Wifi",
@@ -38,23 +40,25 @@ const WifiPanel: React.FC<Props> = ({isOpen}) => {
     }
 
     return (
-        <div id="wifi-panel" className={`absolute bottom-2.5 right-2.5 transform translate-y-[200%] ${isOpen ? '!translate-y-0' : ''} grid grid-cols-3 auto-rows-[minmax(60px,75px)] gap-3 p-6 bg-[#3339] backdrop-blur-xl rounded-md transition-transform duration-200 ease-in-out`}>
-            {items.map((item, i) => (
-                <div key={i} className={`${item.name.replace(/\s+/g,"-").toLowerCase()} flex justify-end items-center gap-2 flex-col text-sm text-white font-normal`}>
-                    <button
-                        type="button"
-                        className={`w-full h-[47px] flex justify-center items-center border border-solid border-[#9995] rounded-md ${item.isActive ? 'bg-[#4cc2ff] text-black active' : 'bg-[#4444] text-white'}`}
-                        onClick={() => handleToggleItem(item.name)}
-                        aria-label={item.name}
-                    >
-                        {item.svg}
-                    </button>
-                    <p className="text-center text-balance">
-                        {item.name}
-                    </p>
-                </div>
-            ))}
-        </div>
+        <ClickOutside isOpen={isOpen} setIsOpen={setIsOpen}>
+            <div id="wifi-panel" className={`absolute bottom-2.5 right-2.5 transform translate-y-[200%] ${isOpen ? '!translate-y-0' : ''} grid grid-cols-3 auto-rows-[minmax(60px,75px)] gap-3 p-6 bg-[#3339] backdrop-blur-xl rounded-md transition-transform duration-200 ease-in-out`}>
+                {items.map((item, i) => (
+                    <div key={i} className={`${item.name.replace(/\s+/g,"-").toLowerCase()} flex justify-end items-center gap-2 flex-col text-sm text-white font-normal`}>
+                        <button
+                            type="button"
+                            className={`w-full h-[47px] flex justify-center items-center border border-solid border-[#9995] rounded-md ${item.isActive ? 'bg-[#4cc2ff] text-black active' : 'bg-[#4444] text-white'}`}
+                            onClick={() => handleToggleItem(item.name)}
+                            aria-label={item.name}
+                        >
+                            {item.svg}
+                        </button>
+                        <p className="text-center text-balance">
+                            {item.name}
+                        </p>
+                    </div>
+                ))}
+            </div>
+        </ClickOutside>
     );
 };
 
