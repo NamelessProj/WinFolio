@@ -25,3 +25,9 @@ export interface TaskbarItem {
     title: string;
     onClick: Function;
 }
+
+export interface ContextMenuItem {
+    name: string;
+    link: string;
+    svg: string;
+}
