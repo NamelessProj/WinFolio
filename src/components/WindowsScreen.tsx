@@ -76,6 +76,7 @@ const WindowsScreen: React.FC<Props> = ({children}) => {
                 isWindowsMenuOpen={isWindowsMenuOpen}
                 setIsWindowsMenuOpen={setIsWindowsMenuOpen}
                 isNotificationsOpen={isNotificationsOpen}
+                setIsNotificationsOpen={setIsNotificationsOpen}
                 notifications={notifications}
                 isWifiMenuOpen={isWifiMenuOpen}
                 setIsWifiMenuOpen={setIsWifiMenuOpen}
