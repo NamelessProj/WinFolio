@@ -1,6 +1,7 @@
 import React from 'react';
 import TaskbarEl from "@/components/TaskbarEl";
 import TaskbarRightOptions from "@/components/TaskbarRightOptions";
+import {TaskbarItem} from "@/utils/interfaces";
 
 interface Props {
     handleToggleWindowsMenu: Function;
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const Taskbar: React.FC<Props> = ({handleToggleWindowsMenu, isWifiMenuOpen, isNotificationsOpen, notificationsBeenRead, handleToggleNotifications, handleToggleWifiMenu}) => {
-    const taskbar: {src: string, title: string, onClick: Function}[] = [
+    const taskbar: TaskbarItem[] = [
         {
             src: "/windows_menu.png",
             title: "Windows Menu",
@@ -27,12 +28,7 @@ const Taskbar: React.FC<Props> = ({handleToggleWindowsMenu, isWifiMenuOpen, isNo
 
     return (
         <div id="taskbar" className="absolute bottom-0 left-0 right-0 h-[var(--taskbar-height)] bg-[#3338] text-white flex justify-center items-center gap-6 backdrop-blur-xl">
-            {taskbar.map((el, i) => <TaskbarEl
-                key={i}
-                src={el.src}
-                title={el.title}
-                onClick={typeof el.onClick === 'function' ? el.onClick : null}
-            />)}
+            {taskbar.map((el, i) => <TaskbarEl key={i} item={el} />)}
 
             <TaskbarRightOptions
                 notificationsBeenRead={notificationsBeenRead}
