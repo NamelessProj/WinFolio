@@ -20,7 +20,7 @@ const ClickOutside: React.FC<Props> = ({children, isOpen, setIsOpen}) => {
     }, [isOpen, setIsOpen]);
 
     return (
-        <div ref={ref}>
+        <div ref={ref} className="click-outside">
             {children}
         </div>
     );
