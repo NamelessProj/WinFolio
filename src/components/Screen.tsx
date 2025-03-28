@@ -15,12 +15,13 @@ interface Props {
     handleClearNotifications: Function;
     isNotificationsOpen: boolean;
     isWifiMenuOpen: boolean;
+    setIsWifiMenuOpen: Function;
     isWindowsMenuOpen: boolean;
     setIsWindowsMenuOpen: Function;
     notifications: Array<Notification>;
 }
 
-const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, handleProgram, handleClearNotifications, isNotificationsOpen, isWifiMenuOpen, isWindowsMenuOpen, setIsWindowsMenuOpen, notifications}) => {
+const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, handleProgram, handleClearNotifications, isNotificationsOpen, isWifiMenuOpen, setIsWifiMenuOpen, isWindowsMenuOpen, setIsWindowsMenuOpen, notifications}) => {
     const ref = React.useRef<HTMLDivElement>(null);
     const [windowsSite, setWindowsSite] = React.useState<{height: number, width: number}>({height: 1080, width: 1920});
 
@@ -55,7 +56,7 @@ const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, hand
 
             {children}
 
-            <WifiPanel isOpen={isWifiMenuOpen} />
+            <WifiPanel isOpen={isWifiMenuOpen} setIsOpen={setIsWifiMenuOpen} />
 
             <NotificationPanel
                 isOpen={isNotificationsOpen}
