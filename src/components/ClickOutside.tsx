@@ -10,7 +10,7 @@ const ClickOutside: React.FC<Props> = ({children, isOpen, setIsOpen}) => {
     const ref = React.useRef<HTMLDivElement>(null);
     React.useEffect((): () => void => {
         const handleClick = (e: any): void => {
-            if(ref.current && !ref.current.contains(e.target)) setIsOpen(false);
+            if(ref.current && (!ref.current.contains(e.target) || e.target.classList.contains('click-outside'))) setIsOpen(false);
         };
 
         document.addEventListener("click", handleClick);
