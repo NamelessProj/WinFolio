@@ -19,3 +19,9 @@ export interface Notification {
         alt: string;
     };
 }
+
+export interface TaskbarItem {
+    src: string;
+    title: string;
+    onClick: Function;
+}
