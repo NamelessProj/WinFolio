@@ -50,7 +50,7 @@ const WindowsMenu: React.FC<Props> = ({isOpen, setIsOpen, handleProgram, program
                         </button>
                     </div>
                     <div className="start-menu-row-container grid grid-cols-6 auto-rows-[85px] max-h-[170px] overflow-y-auto mt-5">
-                        {programs.map((program, i) => <WindowsMenuItem key={i} program={program} handleProgram={handleProgram} />)}
+                        {programs.map((program: Program, i: number) => <WindowsMenuItem key={i} program={program} handleProgram={handleProgram} />)}
                     </div>
                 </div>
             </div>
