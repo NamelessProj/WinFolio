@@ -28,7 +28,7 @@ const Taskbar: React.FC<Props> = ({handleToggleWindowsMenu, isWifiMenuOpen, isNo
 
     return (
         <div id="taskbar" className="absolute bottom-0 left-0 right-0 h-[var(--taskbar-height)] bg-[#3338] text-white flex justify-center items-center gap-6 backdrop-blur-xl">
-            {taskbar.map((el, i) => <TaskbarEl key={i} item={el} />)}
+            {taskbar.map((el: TaskbarItem, i: number) => <TaskbarEl key={i} item={el} />)}
 
             <TaskbarRightOptions
                 notificationsBeenRead={notificationsBeenRead}
