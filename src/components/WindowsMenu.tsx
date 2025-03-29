@@ -11,9 +11,11 @@ interface Props {
 }
 
 const WindowsMenu: React.FC<Props> = ({isOpen, setIsOpen, handleProgram, programs}) => {
+    const ref = React.useRef<HTMLDivElement>(null);
+
     return (
-        <ClickOutside isOpen={isOpen} setIsOpen={setIsOpen}>
-            <div id="windows-menu" className={`absolute z-30 text-[#eee] bottom-3 left-[50%] transform translate-x-[-50%] backdrop-blur-xl w-[640px] p-8 pb-0 rounded-xl border-[1px] border-solid border-[#393939] overflow-clip transition-transform duration-200 ease-out ${isOpen ? 'open' : ''}`}>
+        <ClickOutside ref={ref} isOpen={isOpen} setIsOpen={setIsOpen}>
+            <div ref={ref} id="windows-menu" className={`absolute z-30 text-[#eee] bottom-3 left-[50%] transform translate-x-[-50%] backdrop-blur-xl w-[640px] p-8 pb-0 rounded-xl border-[1px] border-solid border-[#393939] overflow-clip transition-transform duration-200 ease-out ${isOpen ? 'open' : ''}`}>
                 <div className="start-menu-row">
                     <div className="relative h-8 bg-[#222] rounded-full border-[1px] border-solid border-[#393939] flex items-center">
                         <svg
