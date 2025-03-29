@@ -13,6 +13,7 @@ interface Item {
 }
 
 const WifiPanel: React.FC<Props> = ({isOpen, setIsOpen}) => {
+    const ref = React.useRef<HTMLDivElement>(null);
     const [items, setItems] = React.useState<Array<Item>>([
         {
             name: "Wifi",
@@ -40,8 +41,8 @@ const WifiPanel: React.FC<Props> = ({isOpen, setIsOpen}) => {
     }
 
     return (
-        <ClickOutside isOpen={isOpen} setIsOpen={setIsOpen}>
-            <div id="wifi-panel" className={`absolute bottom-2.5 right-2.5 transform translate-y-[200%] ${isOpen ? '!translate-y-0' : ''} grid grid-cols-3 auto-rows-[minmax(60px,75px)] gap-3 p-6 bg-[#3339] backdrop-blur-xl rounded-md transition-transform duration-200 ease-in-out`}>
+        <ClickOutside ref={ref} isOpen={isOpen} setIsOpen={setIsOpen}>
+            <div ref={ref} id="wifi-panel" className={`absolute bottom-2.5 right-2.5 transform translate-y-[200%] ${isOpen ? '!translate-y-0' : ''} grid grid-cols-3 auto-rows-[minmax(60px,75px)] gap-3 p-6 bg-[#3339] backdrop-blur-xl rounded-md transition-transform duration-200 ease-in-out`}>
                 {items.map((item: Item, i: number) => (
                     <div key={i} className={`${item.name.replace(/\s+/g,"-").toLowerCase()} flex justify-end items-center gap-2 flex-col text-sm text-white font-normal`}>
                         <button
