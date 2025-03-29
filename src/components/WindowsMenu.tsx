@@ -2,6 +2,7 @@ import React from 'react';
 import {Program} from "@/utils/interfaces";
 import WindowsMenuItem from "@/components/WindowsMenuItem";
 import ClickOutside from "@/components/ClickOutside";
+import WindowsMenuFooter from "@/components/WindowsMenuFooter";
 
 interface Props {
     isOpen: boolean;
@@ -15,7 +16,7 @@ const WindowsMenu: React.FC<Props> = ({isOpen, setIsOpen, handleProgram, program
 
     return (
         <ClickOutside ref={ref} isOpen={isOpen} setIsOpen={setIsOpen}>
-            <div ref={ref} id="windows-menu" className={`absolute z-30 text-[#eee] bottom-3 left-[50%] transform translate-x-[-50%] backdrop-blur-xl w-[640px] p-8 pb-0 rounded-xl border-[1px] border-solid border-[#393939] overflow-clip transition-transform duration-200 ease-out ${isOpen ? 'open' : ''}`}>
+            <div ref={ref} id="windows-menu" className={`absolute z-30 text-[#eee] bottom-3 left-[50%] transform translate-x-[-50%] backdrop-blur-xl w-[640px] p-[var(--windows-menu-padding)] pb-0 rounded-xl border-[1px] border-solid border-[#393939] overflow-clip transition-transform duration-200 ease-out ${isOpen ? 'open' : ''}`}>
                 <div className="start-menu-row">
                     <div className="relative h-8 bg-[#222] rounded-full border-[1px] border-solid border-[#393939] flex items-center">
                         <svg
@@ -55,6 +56,7 @@ const WindowsMenu: React.FC<Props> = ({isOpen, setIsOpen, handleProgram, program
                         {programs.map((program: Program, i: number) => <WindowsMenuItem key={i} program={program} handleProgram={handleProgram} />)}
                     </div>
                 </div>
+                <WindowsMenuFooter />
             </div>
         </ClickOutside>
     );
