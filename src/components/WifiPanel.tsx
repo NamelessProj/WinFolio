@@ -42,7 +42,7 @@ const WifiPanel: React.FC<Props> = ({isOpen, setIsOpen}) => {
     return (
         <ClickOutside isOpen={isOpen} setIsOpen={setIsOpen}>
             <div id="wifi-panel" className={`absolute bottom-2.5 right-2.5 transform translate-y-[200%] ${isOpen ? '!translate-y-0' : ''} grid grid-cols-3 auto-rows-[minmax(60px,75px)] gap-3 p-6 bg-[#3339] backdrop-blur-xl rounded-md transition-transform duration-200 ease-in-out`}>
-                {items.map((item, i) => (
+                {items.map((item: Item, i: number) => (
                     <div key={i} className={`${item.name.replace(/\s+/g,"-").toLowerCase()} flex justify-end items-center gap-2 flex-col text-sm text-white font-normal`}>
                         <button
                             type="button"
