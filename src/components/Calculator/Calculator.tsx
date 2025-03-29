@@ -250,7 +250,7 @@ const Calculator = () => {
             </p>
 
             <div className="grid grid-cols-4 auto-rows-[50px] gap-0.5 mt-4">
-                {allButtons.map((btn, i) => (
+                {allButtons.map((btn: Button, i: number) => (
                     <button
                         key={i}
                         onClick={() => btn.onClick()}
