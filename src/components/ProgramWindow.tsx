@@ -5,9 +5,9 @@ import Image from "next/image";
 interface Props {
     children: React.ReactNode;
     program: Program;
-    onClose: () => void;
+    onClose: Function;
     isFullScreen?: boolean;
-    handleFullScreen?: () => void;
+    handleFullScreen?: Function;
 }
 
 const ProgramWindow: React.FC<Props> = ({children, program, onClose, isFullScreen, handleFullScreen}) => {
