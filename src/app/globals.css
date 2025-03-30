@@ -1,13 +1,22 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "My Segoe";
+    src:
+      local("Segoe UI"),
+      url("/fonts/SegoeUI.woff2") format("woff2"),
+      url("/fonts/SegoeUI.woff") format("woff"),
+      url("/fonts/SegoeUI.ttf") format("truetype");
+}
+
+@theme {
+  --font-sans: "My Segoe", system-ui, sans-serif;
+}
+
 @property --taskbar-height {
   syntax: "<length>";
   initial-value: 59px;
   inherits: true;
-}
-
-@theme {
-  --font-sans: "Segoe UI";
 }
 
 .text-balance {
