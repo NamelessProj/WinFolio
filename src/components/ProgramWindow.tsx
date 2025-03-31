@@ -25,8 +25,8 @@ const ProgramWindow: React.FC<Props> = ({children, program, onClose, isFullScree
             if(!elem) return;
 
             // How far the mouse has been moved
-            let dx: number = e.clientX - startPos.x;
-            let dy: number = e.clientY - startPos.y;
+            const dx: number = e.clientX - startPos.x;
+            const dy: number = e.clientY - startPos.y;
 
             // Set the position
             elem.style.transform = `translate(${dx}px, ${dy}px)`;
