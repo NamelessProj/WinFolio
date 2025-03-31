@@ -3,7 +3,7 @@ import ClickOutside from "@/components/ClickOutside";
 
 interface Props {
     isOpen: boolean;
-    setIsOpen: Function;
+    setIsOpen: (open: boolean) => void;
 }
 
 interface Item {
@@ -48,7 +48,7 @@ const WifiPanel: React.FC<Props> = ({isOpen, setIsOpen}) => {
                         <button
                             type="button"
                             className={`w-full h-[47px] flex justify-center items-center border border-solid border-[#9995] rounded-md ${item.isActive ? 'bg-[#4cc2ff] text-black active' : 'bg-[#4444] text-white'}`}
-                            onClick={() => handleToggleItem(item.name)}
+                            onClick={(): void => handleToggleItem(item.name)}
                             aria-label={item.name}
                         >
                             {item.svg}
