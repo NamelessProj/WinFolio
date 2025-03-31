@@ -11,4 +11,4 @@ In the start menu, I let you discover what makes what. Some buttons will take yo
 
 I won't tell you everything there is, you'll need to experiment by yourself to know what is doing what.
 
-Because my main page is Windows, for my other pages, I've choose to make game or program that i personally like.
+Because my main page is Windows, for my other pages, I've chosen to make game or program that I personally like.
