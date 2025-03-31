@@ -44,6 +44,10 @@ const WindowsScreen: React.FC<Props> = ({children}) => {
         if(isNotificationsOpen) setNotificationsBeenRead(true);
     }, [isNotificationsOpen, setNotificationsBeenRead]);
 
+    const setSetIsWindowsMenuOpen = (open: boolean): void => setIsWindowsMenuOpen(open);
+    const setSetIsNotificationsOpen = (open: boolean): void => setIsNotificationsOpen(open);
+    const setSetIsWifiMenuOpen = (open: boolean): void => setIsWifiMenuOpen(open);
+
     const handleToggleWindowsMenu = (): void => {
         setIsWindowsMenuOpen(!isWindowsMenuOpen);
     }
@@ -74,12 +78,12 @@ const WindowsScreen: React.FC<Props> = ({children}) => {
                 allProgramsStatic={allProgramsStatic}
                 allPrograms={allPrograms}
                 isWindowsMenuOpen={isWindowsMenuOpen}
-                setIsWindowsMenuOpen={setIsWindowsMenuOpen}
+                setIsWindowsMenuOpen={setSetIsWindowsMenuOpen}
                 isNotificationsOpen={isNotificationsOpen}
-                setIsNotificationsOpen={setIsNotificationsOpen}
+                setIsNotificationsOpen={setSetIsNotificationsOpen}
                 notifications={notifications}
                 isWifiMenuOpen={isWifiMenuOpen}
-                setIsWifiMenuOpen={setIsWifiMenuOpen}
+                setIsWifiMenuOpen={setSetIsWifiMenuOpen}
                 handleClearNotifications={handleClearNotifications}
                 handleProgram={handleProgram}
             >
