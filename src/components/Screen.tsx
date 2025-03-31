@@ -11,14 +11,14 @@ interface Props {
     children: React.ReactNode;
     allPrograms: Array<Program>;
     allProgramsStatic: Array<Program>;
-    handleProgram: Function;
-    handleClearNotifications: Function;
+    handleProgram: (name: string, open?: boolean) => void;
+    handleClearNotifications: () => void;
     isNotificationsOpen: boolean;
-    setIsNotificationsOpen: Function;
+    setIsNotificationsOpen: (open: boolean) => void;
     isWifiMenuOpen: boolean;
-    setIsWifiMenuOpen: Function;
+    setIsWifiMenuOpen: (open: boolean) => void;
     isWindowsMenuOpen: boolean;
-    setIsWindowsMenuOpen: Function;
+    setIsWindowsMenuOpen: (open: boolean) => void;
     notifications: Array<Notification>;
 }
 
@@ -43,13 +43,13 @@ const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, hand
     return (
         <section ref={ref} id="screen" className="pt-[6px] h-[calc(100%-var(--taskbar-height))] grid grid-cols-[repeat(auto-fill,120px)] grid-rows-[repeat(auto-fill,107px)] relative overflow-clip">
 
-            {allProgramsStatic.map((program, i) => <DesktopIcon key={i} program={program} handleProgram={handleProgram} />)}
+            {allProgramsStatic.map((program: Program, i: number) => <DesktopIcon key={i} program={program} handleProgram={handleProgram} />)}
 
-            {allPrograms.map((program, i) => (
+            {allPrograms.map((program: Program, i: number) => (
                 <ProgramWindow
                     key={i}
                     program={program}
-                    onClose={() => handleProgram(program.name, false)}
+                    onClose={(): void => handleProgram(program.name, false)}
                 >
                     {program.component}
                 </ProgramWindow>
