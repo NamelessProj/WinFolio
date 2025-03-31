@@ -4,12 +4,12 @@ import TaskbarRightOptions from "@/components/TaskbarRightOptions";
 import {TaskbarItem} from "@/utils/interfaces";
 
 interface Props {
-    handleToggleWindowsMenu: Function;
+    handleToggleWindowsMenu: () => void;
     isWifiMenuOpen: boolean;
     isNotificationsOpen: boolean;
     notificationsBeenRead: boolean;
-    handleToggleNotifications: Function;
-    handleToggleWifiMenu: Function;
+    handleToggleNotifications: () => void;
+    handleToggleWifiMenu: () => void;
 }
 
 const Taskbar: React.FC<Props> = ({handleToggleWindowsMenu, isWifiMenuOpen, isNotificationsOpen, notificationsBeenRead, handleToggleNotifications, handleToggleWifiMenu}) => {
