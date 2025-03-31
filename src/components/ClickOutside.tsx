@@ -4,7 +4,7 @@ interface Props {
     children: React.ReactNode;
     ref: React.RefObject<HTMLDivElement|null>;
     isOpen: boolean;
-    setIsOpen: Function;
+    setIsOpen: (open: boolean) => void;
 }
 
 const ClickOutside: React.FC<Props> = ({children, ref, isOpen, setIsOpen}) => {
