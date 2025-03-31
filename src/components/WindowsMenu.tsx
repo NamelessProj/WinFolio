@@ -6,8 +6,8 @@ import WindowsMenuFooter from "@/components/WindowsMenuFooter";
 
 interface Props {
     isOpen: boolean;
-    setIsOpen: Function;
-    handleProgram: Function;
+    setIsOpen: (open: boolean) => void;
+    handleProgram: (name: string) => void;
     programs: Array<Program>;
 }
 
