@@ -5,9 +5,9 @@ import ClickOutside from "@/components/ClickOutside";
 
 interface Props {
     isOpen: boolean;
-    setIsOpen: Function;
+    setIsOpen: (open: boolean) => void;
     notifications: Array<Notification>;
-    handleClearNotifications: Function;
+    handleClearNotifications: () => void;
 }
 
 const NotificationPanel: React.FC<Props> = ({isOpen, setIsOpen, notifications, handleClearNotifications}) => {
@@ -21,7 +21,7 @@ const NotificationPanel: React.FC<Props> = ({isOpen, setIsOpen, notifications, h
                     <button
                         type="button"
                         className="rounded-sm bg-[#444] py-1 px-2 text-[#eee]"
-                        onClick={() => handleClearNotifications()}
+                        onClick={(): void => handleClearNotifications()}
                     >
                         Clear all
                     </button>
@@ -29,7 +29,7 @@ const NotificationPanel: React.FC<Props> = ({isOpen, setIsOpen, notifications, h
 
                 <div className="flex justify-start flex-col">
                     {notifications.length > 0 ? (
-                        notifications.map((notification, i) => (
+                        notifications.map((notification: Notification, i: number) => (
                             <div key={i}>
                                 <div className="flex justify-start items-center gap-2 p-2 text-base">
                                     <Image
