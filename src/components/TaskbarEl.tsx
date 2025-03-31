@@ -9,7 +9,7 @@ interface Props {
 const TaskbarEl: React.FC<Props> = ({item}) => {
     const handleClick = (e: any): void => {
         e.preventDefault();
-        if(typeof item.onClick === "function") item.onClick(e);
+        if(typeof item.onClick === "function") item.onClick();
     }
 
     return (
