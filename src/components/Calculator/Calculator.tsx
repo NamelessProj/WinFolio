@@ -3,7 +3,7 @@ import React from 'react';
 interface Button {
     value: string;
     className?: string;
-    onClick: Function;
+    onClick: () => void;
 }
 
 const Calculator = () => {
