@@ -4,7 +4,7 @@ import {Program} from "@/utils/interfaces";
 
 interface Props {
     program: Program;
-    handleProgram: Function;
+    handleProgram: (name: string) => void;
 }
 
 const WindowsMenuItem: React.FC<Props> = ({program, handleProgram}) => {
@@ -14,7 +14,7 @@ const WindowsMenuItem: React.FC<Props> = ({program, handleProgram}) => {
                 <button
                     type="button"
                     title={program.name}
-                    onClick={() => handleProgram(program.name)}
+                    onClick={(): void => handleProgram(program.name)}
                     className="flex justify-center items-center flex-col gap-2.5 rounded-sm text-[12px] hover:bg-[rgba(70,70,70,0.6)]"
                 >
                     <span>
