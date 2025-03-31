@@ -7,7 +7,10 @@ export interface Program {
     component: React.ReactNode;
     isOpen: boolean;
     displayOnDesktop: boolean;
-    area: {rowStart: number; colStart: number};
+    area: {
+        rowStart: number;
+        colStart: number;
+    };
     isExeFile: boolean;
 }
 
@@ -23,7 +26,7 @@ export interface Notification {
 export interface TaskbarItem {
     src: string;
     title: string;
-    onClick: Function;
+    onClick: () => void;
 }
 
 export interface ContextMenuItem {
