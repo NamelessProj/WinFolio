@@ -60,8 +60,8 @@ const ProgramWindow: React.FC<Props> = ({children, program, onClose, isFullScree
 
             const touch: any = e.touches[0];
 
-            let dx: number = touch.clientX - startPos.x;
-            let dy: number = touch.clientY - startPos.y;
+            const dx: number = touch.clientX - startPos.x;
+            const dy: number = touch.clientY - startPos.y;
 
             elem.style.transform = `translate(${dx}px, ${dy}px)`;
             setOffset({dx, dy});
