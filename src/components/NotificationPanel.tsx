@@ -11,7 +11,7 @@ interface Props {
 }
 
 const NotificationPanel: React.FC<Props> = ({isOpen, setIsOpen, notifications, handleClearNotifications}) => {
-    const ref = React.useRef<HTMLDivElement>(null);
+    const ref: React.RefObject<HTMLDivElement|null> = React.useRef<HTMLDivElement>(null);
 
     return (
         <ClickOutside ref={ref} isOpen={isOpen} setIsOpen={setIsOpen}>
