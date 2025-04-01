@@ -2,6 +2,7 @@ import React from 'react';
 import {Notification} from "@/utils/interfaces";
 import Image from "next/image";
 import ClickOutside from "@/components/ClickOutside";
+import NotificationItem from "@/components/NotificationItem";
 
 interface Props {
     isOpen: boolean;
@@ -29,27 +30,7 @@ const NotificationPanel: React.FC<Props> = ({isOpen, setIsOpen, notifications, h
 
                 <div className="flex justify-start flex-col">
                     {notifications.length > 0 ? (
-                        notifications.map((notification: Notification, i: number) => (
-                            <div key={i}>
-                                <div className="flex justify-start items-center gap-2 p-2 text-base">
-                                    <Image
-                                        src={notification.img.src}
-                                        alt={notification.img.alt}
-                                        width={25}
-                                        height={25}
-                                        className="object-contain object-center"
-                                    />
-                                    <p>
-                                        {notification.title}
-                                    </p>
-                                </div>
-                                <div className="pl-4 pb-4 pr-4 pt-0 text-sm">
-                                    <p>
-                                        {notification.text}
-                                    </p>
-                                </div>
-                            </div>
-                        ))
+                        notifications.map((notification: Notification, i: number) => <NotificationItem key={i} notification={notification} />)
                     ) : (
                         <p className="text-center text-balance text-base py-12">
                             Were you expecting something special here? Well, it&apos;s empty.
