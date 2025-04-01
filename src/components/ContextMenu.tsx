@@ -55,7 +55,7 @@ const ContextMenu: React.FC<Props> = ({windowsSite}) => {
             document.removeEventListener('contextmenu', handleOpenContext);
             if(ref.current) ref.current.removeEventListener('mouseleave', handleCloseContext);
         }
-    }, [windowsSite]);
+    }, [windowsSite, ref]);
 
     return (
         <div ref={ref} id="context-menu" className="absolute top-0 left-0 w-[400px] bg-[rgba(42,42,42,0.8)] z-50 rounded-xl backdrop-blur-md hidden">
