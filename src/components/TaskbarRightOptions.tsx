@@ -33,9 +33,7 @@ const TaskbarRightOptions: React.FC<Props> = ({notificationsBeenRead, isNotifica
         updateDate(new Date());
 
         const interval = setInterval(updateTime, 1000);
-        return (): void => {
-            clearInterval(interval);
-        };
+        return (): void => clearInterval(interval);
     }, []);
 
     const buttonClassName: string = "flex justify-center items-center gap-2.5 h-[calc(100%-15px)] px-2.5 bg-[#0000] text-[12px] text-white rounded-md hover:bg-[#9992] transition-colors duration-200 ease-in-out";
