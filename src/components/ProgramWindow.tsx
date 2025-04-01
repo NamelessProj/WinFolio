@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ProgramWindow: React.FC<Props> = ({children, program, onClose, isFullScreen, handleFullScreen}) => {
-    const ref = React.useRef<HTMLDivElement>(null);
+    const ref: React.RefObject<HTMLDivElement|null> = React.useRef<HTMLDivElement>(null);
     const [{dx, dy}, setOffset] = React.useState({dx: 0, dy: 0});
 
     const handleMouseDown = (e: any): void => {
