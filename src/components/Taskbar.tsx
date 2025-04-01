@@ -17,12 +17,12 @@ const Taskbar: React.FC<Props> = ({handleToggleWindowsMenu, isWifiMenuOpen, isNo
         {
             src: "/windows_menu.png",
             title: "Windows Menu",
-            onClick: () => handleToggleWindowsMenu(),
+            onClick: (): void => handleToggleWindowsMenu(),
         },
         {
             src: "/googleChrome.png",
             title: "Google Chrome",
-            onClick: () => window.open("https://www.google.com", "_blank"),
+            onClick: (): Window|null => window.open("https://www.google.com", "_blank"),
         }
     ];
 
