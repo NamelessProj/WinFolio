@@ -23,7 +23,7 @@ interface Props {
 }
 
 const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, handleProgram, handleClearNotifications, isNotificationsOpen, setIsNotificationsOpen, isWifiMenuOpen, setIsWifiMenuOpen, isWindowsMenuOpen, setIsWindowsMenuOpen, notifications}) => {
-    const ref = React.useRef<HTMLDivElement>(null);
+    const ref: React.RefObject<HTMLDivElement|null> = React.useRef<HTMLDivElement>(null);
     const [windowsSite, setWindowsSite] = React.useState<{height: number, width: number}>({height: 1080, width: 1920});
 
     React.useEffect((): () => void => {
