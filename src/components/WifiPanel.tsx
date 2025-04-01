@@ -13,7 +13,7 @@ interface Item {
 }
 
 const WifiPanel: React.FC<Props> = ({isOpen, setIsOpen}) => {
-    const ref = React.useRef<HTMLDivElement>(null);
+    const ref: React.RefObject<HTMLDivElement|null> = React.useRef<HTMLDivElement>(null);
     const [items, setItems] = React.useState<Array<Item>>([
         {
             name: "Wifi",
