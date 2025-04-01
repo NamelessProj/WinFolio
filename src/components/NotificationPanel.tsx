@@ -1,6 +1,5 @@
 import React from 'react';
 import {Notification} from "@/utils/interfaces";
-import Image from "next/image";
 import ClickOutside from "@/components/ClickOutside";
 import NotificationItem from "@/components/NotificationItem";
 
