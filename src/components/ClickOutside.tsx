@@ -14,10 +14,8 @@ const ClickOutside: React.FC<Props> = ({children, ref, isOpen, setIsOpen}) => {
         };
 
         document.addEventListener("click", handleClick);
-        return (): void => {
-            document.removeEventListener("click", handleClick);
-        }
-    }, [isOpen, setIsOpen]);
+        return (): void => document.removeEventListener("click", handleClick);
+    }, [isOpen, setIsOpen, ref]);
 
     return children;
 };
