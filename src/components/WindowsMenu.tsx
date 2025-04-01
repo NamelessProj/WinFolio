@@ -12,7 +12,7 @@ interface Props {
 }
 
 const WindowsMenu: React.FC<Props> = ({isOpen, setIsOpen, handleProgram, programs}) => {
-    const ref = React.useRef<HTMLDivElement>(null);
+    const ref: React.RefObject<HTMLDivElement|null> = React.useRef<HTMLDivElement>(null);
 
     return (
         <ClickOutside ref={ref} isOpen={isOpen} setIsOpen={setIsOpen}>
