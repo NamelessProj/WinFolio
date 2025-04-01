@@ -27,19 +27,20 @@ interface Props {
 }
 
 const ContextMenu: React.FC<Props> = ({windowsSite}) => {
-    const ref = React.useRef<HTMLDivElement>(null);
+    const ref: React.RefObject<HTMLDivElement|null> = React.useRef<HTMLDivElement>(null);
 
     React.useEffect((): () => void => {
         const handleOpenContext = (e: MouseEvent): void => {
             e.preventDefault();
-            if(!ref.current) return;
+            const elem: HTMLDivElement|null = ref.current;
+            if(!elem) return;
 
-            const {clientHeight, clientWidth} = ref.current;
+            const {clientHeight, clientWidth} = elem;
 
-            ref.current.style.top = e.y + clientHeight >= windowsSite.height ? `${e.y - clientHeight}px` : `${e.y}px`;
-            ref.current.style.left = e.x + clientWidth >= windowsSite.width ? `${e.x - clientWidth}px` : `${e.x}px`;
+            elem.style.top = e.y + clientHeight >= windowsSite.height ? `${e.y - clientHeight}px` : `${e.y}px`;
+            elem.style.left = e.x + clientWidth >= windowsSite.width ? `${e.x - clientWidth}px` : `${e.x}px`;
 
-            ref.current.classList.remove('hidden');
+            elem.classList.remove('hidden');
         }
 
         const handleCloseContext = (): void => {
