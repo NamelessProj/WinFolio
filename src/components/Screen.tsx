@@ -38,7 +38,7 @@ const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, hand
         return (): void => {
             window.removeEventListener('resize', setSizes);
         };
-    }, []);
+    }, [ref]);
 
     return (
         <section ref={ref} id="screen" className="pt-[6px] h-[calc(100%-var(--taskbar-height))] grid grid-cols-[repeat(auto-fill,120px)] grid-rows-[repeat(auto-fill,107px)] relative overflow-clip">
