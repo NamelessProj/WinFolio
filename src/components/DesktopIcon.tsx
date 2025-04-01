@@ -15,7 +15,7 @@ const DesktopIcon: React.FC<Props> = ({program, handleProgram}) => {
                     <button
                         type="button"
                         title={program.name}
-                        onDoubleClick={() => handleProgram(program.name)}
+                        onDoubleClick={(): void => handleProgram(program.name)}
                         className="h-[min(80px,100%)] w-full flex justify-center items-center flex-col gap-2 cursor-pointer rounded-sm hover:bg-linear-to-bl from-[rgba(250,250,250,0.1)] to-[rgba(250,250,250,0.05)]"
                     >
                         <div className="relative">
