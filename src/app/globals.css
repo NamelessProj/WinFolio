@@ -46,11 +46,13 @@
 }
 
 .program-window{
-  translate: -50% 0;
   min-width: var(--program-min-width);
   background: #222;
   opacity: 0;
   animation: openProgram 0.3s ease-in-out forwards;
+}
+.program-window.full-screen{
+  transform: translate(0) !important;
 }
 
 .program-header-options button{
