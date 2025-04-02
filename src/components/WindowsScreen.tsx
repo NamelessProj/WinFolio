@@ -20,6 +20,7 @@ const allProgramsStatic: Array<Program> = [
         displayOnDesktop: true,
         area: {rowStart: 0, colStart: 0},
         isExeFile: true,
+        canBeFullScreen: false,
     },
 ];
 
