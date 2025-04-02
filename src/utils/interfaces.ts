@@ -12,6 +12,8 @@ export interface Program {
         colStart: number;
     };
     isExeFile: boolean;
+    canBeFullScreen: boolean;
+    startFullScreen?: boolean;
 }
 
 export interface Notification {
