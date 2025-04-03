@@ -10,7 +10,7 @@ interface Props {
 const DesktopIcon: React.FC<Props> = ({program, handleProgram}) => {
     return (
         <>
-            {program.displayOnDesktop ? (
+            {(program.displayOnDesktop && program.area) ? (
                 <div className="screen-program text-[12px] text-white" style={{gridArea: `${program.area.rowStart} / ${program.area.colStart} / span 1 / span 1`}}>
                     <button
                         type="button"
