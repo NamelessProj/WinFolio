@@ -30,7 +30,6 @@ const allProgramsStatic: Array<Program> = [
         component: <WhatICantDo />,
         isOpen: false,
         displayOnDesktop: false,
-        area: {rowStart: 0, colStart: 0},
         isExeFile: false,
         canBeFullScreen: true,
     },
