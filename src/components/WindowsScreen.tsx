@@ -5,6 +5,7 @@ import {Notification, Program} from "@/utils/interfaces";
 import Calculator from "@/components/Calculator/Calculator";
 import Screen from "@/components/Screen";
 import Taskbar from "@/components/Taskbar";
+import WhatICantDo from "@/components/WhatICantDo/WhatICantDo";
 
 interface Props {
     children: React.ReactNode;
@@ -21,6 +22,17 @@ const allProgramsStatic: Array<Program> = [
         area: {rowStart: 0, colStart: 0},
         isExeFile: true,
         canBeFullScreen: false,
+    },
+    {
+        name: "This program does not exist",
+        src: "/404.png",
+        displayInMenu: true,
+        component: <WhatICantDo />,
+        isOpen: false,
+        displayOnDesktop: false,
+        area: {rowStart: 0, colStart: 0},
+        isExeFile: false,
+        canBeFullScreen: true,
     },
 ];
 
