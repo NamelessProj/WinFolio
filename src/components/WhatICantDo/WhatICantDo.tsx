@@ -5,7 +5,7 @@ const WhatICantDo = () => {
                 Error 404!
             </h2>
             <p className="text-balance text-gray-400">
-                Sorry, but I can do everything, did you really think I couldn't do anything?
+                Sorry, but I can do everything, did you really think I couldn&#39;t do anything?
             </p>
         </div>
     );
