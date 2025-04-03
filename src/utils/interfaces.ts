@@ -7,7 +7,7 @@ export interface Program {
     component: React.ReactNode;
     isOpen: boolean;
     displayOnDesktop: boolean;
-    area: {
+    area?: {
         rowStart: number;
         colStart: number;
     };
