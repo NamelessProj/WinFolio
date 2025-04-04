@@ -61,7 +61,7 @@ const FileExplorerMain: React.FC<Props> = ({locationsList, handleLocationChange}
                                     <React.Fragment key={j}>
                                         {item.content.map((contentItem: FileExplorerLocationItem, k: number) => (
                                             <tr
-                                                key={j}
+                                                key={k}
                                                 role="link"
                                                 className={`${item.isActive ? 'active' : ''}`}
                                             >
