@@ -85,7 +85,6 @@ const FileExplorerMain: React.FC<Props> = ({locationsList, handleLocationChange}
                         ))}
                         <tr className="hidden">
                             <td>
-                                <img src="" alt="" />
                                 <span>I see you</span>
                             </td>
                             <td>{today}</td>
