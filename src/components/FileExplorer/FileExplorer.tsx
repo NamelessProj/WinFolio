@@ -5,7 +5,7 @@ import FileExplorerSubHeader from "@/components/FileExplorer/FileExplorerSubHead
 import FileExplorerMain from "@/components/FileExplorer/FileExplorerMain";
 
 interface Props {
-    programs: Array<Program>;
+    programs?: Array<Program>;
 }
 
 const FileExplorer: React.FC<Props> = ({programs}) => {
