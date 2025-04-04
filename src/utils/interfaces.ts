@@ -36,3 +36,19 @@ export interface ContextMenuItem {
     link: string;
     svg: string;
 }
+
+export interface FileExplorerLocationItem {
+    name: string;
+    src: string;
+    alt: string;
+    type?: string;
+    size?: string;
+}
+
+export interface FileExplorerLocation {
+    name: string;
+    src: string;
+    alt: string;
+    isActive: boolean;
+    content: FileExplorerLocationItem[];
+}
