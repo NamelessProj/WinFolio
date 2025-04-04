@@ -94,7 +94,7 @@ const FileExplorer: React.FC<Props> = ({programs}) => {
                 locationsList={locationsList}
                 handleLocationChange={handleLocationChange}
             />
-            {programs && programs.map((program: Program) => (<div>{program.name}</div>))}
+            {programs && programs.map((program: Program, i: number) => (<div key={i}>{program.name}</div>))}
         </div>
     );
 };
