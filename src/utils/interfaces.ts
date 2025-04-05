@@ -13,7 +13,10 @@ export interface Program {
     };
     isExeFile: boolean;
     canBeFullScreen: boolean;
+    displayInExplorer?: boolean;
     startFullScreen?: boolean;
+    type?: 'Shorthand'|'Folder'|'File'|'Shortcut';
+    size?: string;
 }
 
 export interface Notification {
@@ -37,18 +40,10 @@ export interface ContextMenuItem {
     svg: string;
 }
 
-export interface FileExplorerLocationItem {
-    name: string;
-    src: string;
-    alt: string;
-    type?: string;
-    size?: string;
-}
-
 export interface FileExplorerLocation {
     name: string;
     src: string;
     alt: string;
     isActive: boolean;
-    content: FileExplorerLocationItem[];
+    content: Program[];
 }
