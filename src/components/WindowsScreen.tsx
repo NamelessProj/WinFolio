@@ -22,6 +22,7 @@ const allProgramsStatic: Array<Program> = [
         area: {rowStart: 0, colStart: 0},
         isExeFile: true,
         canBeFullScreen: false,
+        displayInExplorer: true,
     },
     {
         name: "This program does not exist",
@@ -32,6 +33,7 @@ const allProgramsStatic: Array<Program> = [
         displayOnDesktop: false,
         isExeFile: false,
         canBeFullScreen: true,
+        displayInExplorer: false,
     },
 ];
 
