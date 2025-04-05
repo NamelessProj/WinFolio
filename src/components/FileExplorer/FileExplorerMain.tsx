@@ -44,7 +44,7 @@ const today: string = `${day}.${month}.${year} ${hours}:${minutes}`;
                                 </li>
                             ))}
                         </ul>
-                        <div className="divider last:hidden w-[calc(100%-20px)] h-0.5 rounded-full bg-[#888] mx-auto my-2.5"></div>
+                        <div className="divider last:hidden w-[calc(100%-20px)] h-[1px] rounded-full bg-[#888] mx-auto my-2.5"></div>
                     </React.Fragment>
                 ))}
             </div>
