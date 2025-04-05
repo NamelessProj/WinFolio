@@ -5,10 +5,11 @@ import FileExplorerSubHeader from "@/components/FileExplorer/FileExplorerSubHead
 import FileExplorerMain from "@/components/FileExplorer/FileExplorerMain";
 
 interface Props {
-    programs?: Array<Program>;
+    programs: Array<Program>;
+    handleProgram: (name: string) => void;
 }
 
-const FileExplorer: React.FC<Props> = ({programs}) => {
+const FileExplorer: React.FC<Props> = ({programs, handleProgram}) => {
     const [location, setLocation] = React.useState<string>("Desktop");
     const [locationsList, setLocationsList] = React.useState<Array<FileExplorerLocation[]>>([
         [
@@ -33,7 +34,7 @@ const FileExplorer: React.FC<Props> = ({programs}) => {
                 src: "/Desktop.png",
                 alt: "Desktop",
                 isActive: true,
-                content: [],
+                content: programs,
             },
             {
                 name: "Downloads",
@@ -83,18 +84,19 @@ const FileExplorer: React.FC<Props> = ({programs}) => {
                 };
             });
         });
+        console.log("Updated Locations List: ", updatedLocationsList);
         setLocationsList(updatedLocationsList);
     }
 
     return (
-        <div>
+        <div className="min-w-[540px]">
             <FileExplorerHeader location={location} />
             <FileExplorerSubHeader />
             <FileExplorerMain
                 locationsList={locationsList}
                 handleLocationChange={handleLocationChange}
+                handleProgram={handleProgram}
             />
-            {programs && programs.map((program: Program, i: number) => (<div key={i}>{program.name}</div>))}
         </div>
     );
 };
