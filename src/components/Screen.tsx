@@ -6,6 +6,7 @@ import DesktopIcon from "@/components/DesktopIcon";
 import WifiPanel from "@/components/WifiPanel";
 import NotificationPanel from "@/components/NotificationPanel";
 import ContextMenu from "@/components/ContextMenu";
+import FileExplorer from "@/components/FileExplorer/FileExplorer";
 
 interface Props {
     children: React.ReactNode;
@@ -26,6 +27,25 @@ const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, hand
     const ref: React.RefObject<HTMLDivElement|null> = React.useRef<HTMLDivElement>(null);
     const [windowsSite, setWindowsSite] = React.useState<{height: number, width: number}>({height: 1080, width: 1920});
 
+    const [fileExplorer, setFileExplorer] = React.useState<Program>({
+        name: "File Explorer",
+        src: "/Computer.png",
+        displayInMenu: false,
+        component: <FileExplorer programs={allPrograms} handleProgram={handleProgram} />,
+        isOpen: false,
+        displayOnDesktop: true,
+        area: {rowStart: 1, colStart: 0},
+        isExeFile: true,
+        canBeFullScreen: true,
+    });
+
+    const handleFileExplorer = (toOpen: boolean = true): void => {
+        setFileExplorer((prev: Program): Program => ({
+            ...prev,
+            isOpen: toOpen,
+        }));
+    }
+
     React.useEffect((): () => void => {
         const setSizes = (): void => {
             if(!ref.current) return;
@@ -44,6 +64,18 @@ const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, hand
         <section ref={ref} id="screen" className="pt-[6px] h-[calc(100%-var(--taskbar-height))] grid grid-cols-[repeat(auto-fill,120px)] grid-rows-[repeat(auto-fill,107px)] relative overflow-clip">
 
             {allProgramsStatic.map((program: Program, i: number) => <DesktopIcon key={i} program={program} handleProgram={handleProgram} />)}
+
+            <DesktopIcon
+                program={fileExplorer}
+                handleProgram={(): void => handleFileExplorer()}
+            />
+
+            <ProgramWindow
+                program={fileExplorer}
+                onClose={(): void => handleFileExplorer(false)}
+            >
+                {fileExplorer.component}
+            </ProgramWindow>
 
             {allPrograms.map((program: Program, i: number) => (
                 <ProgramWindow
