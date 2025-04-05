@@ -37,6 +37,7 @@ const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, hand
         area: {rowStart: 1, colStart: 0},
         isExeFile: true,
         canBeFullScreen: true,
+        displayInExplorer: false,
     });
 
     const handleFileExplorer = (toOpen: boolean = true): void => {
