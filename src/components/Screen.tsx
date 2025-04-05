@@ -29,7 +29,7 @@ const Screen: React.FC<Props> = ({children, allPrograms, allProgramsStatic, hand
 
     const [fileExplorer, setFileExplorer] = React.useState<Program>({
         name: "File Explorer",
-        src: "/Computer.png",
+        src: "/Explorer.png",
         displayInMenu: false,
         component: <FileExplorer programs={allPrograms} handleProgram={handleProgram} />,
         isOpen: false,
