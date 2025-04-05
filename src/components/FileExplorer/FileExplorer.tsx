@@ -84,7 +84,6 @@ const FileExplorer: React.FC<Props> = ({programs, handleProgram}) => {
                 };
             });
         });
-        console.log("Updated Locations List: ", updatedLocationsList);
         setLocationsList(updatedLocationsList);
     }
 
