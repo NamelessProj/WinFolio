@@ -13,7 +13,7 @@ export interface Program {
     };
     isExeFile: boolean;
     canBeFullScreen: boolean;
-    displayInExplorer?: boolean;
+    displayInExplorer: boolean;
     startFullScreen?: boolean;
     type?: 'Shorthand'|'Folder'|'File'|'Shortcut';
     size?: string;
