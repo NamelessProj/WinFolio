@@ -47,3 +47,12 @@ export interface FileExplorerLocation {
     isActive: boolean;
     content: Program[];
 }
+
+export interface formItem {
+    id: string;
+    value: string;
+    label: string;
+    type: 'text' | 'email' | 'password' | 'number' | 'tel';
+    inputMode: 'text' | 'numeric' | 'decimal' | 'tel' | 'email';
+    pattern: RegExp;
+}
